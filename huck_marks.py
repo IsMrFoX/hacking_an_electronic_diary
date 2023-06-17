@@ -7,7 +7,7 @@ def fix_marks(student):
         mark.points = 5
         mark.save()
 
-def huck_murks(student_name):
+def huck_marks(student_name):
     try:
         student = Schoolkid.objects.get(full_name__contains=student_name.title())
     except MultipleObjectsReturned:
@@ -24,4 +24,4 @@ def huck_murks(student_name):
 
 
 if __name__ == "__main__":
-    huck_murks()
+    huck_marks()
