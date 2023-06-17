@@ -17,8 +17,6 @@ def huck_marks(student_name):
     except (SyntaxError, AttributeError):
         print('Ошибка ввода, необходимо ввести имя ученика в кавычках, например: "Петров Максим".')
         return
-    except:
-        print('ошибка')
     else:
         fix_marks(student)
 
