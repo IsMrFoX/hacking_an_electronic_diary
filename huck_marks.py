@@ -12,8 +12,10 @@ def huck_marks(student_name):
         student = Schoolkid.objects.get(full_name__contains=student_name.title())
     except MultipleObjectsReturned:
         print(f'Найдено более одного ученика с таким именем - "{student_name}", введите полное имя: ФИО')
+        return
     except ObjectDoesNotExist:
         print('Ученика с таким именем нет в базе данных')
+        return
     except (SyntaxError, AttributeError):
         print('Ошибка ввода, необходимо ввести имя ученика в кавычках, например: "Петров Максим".')
         return
