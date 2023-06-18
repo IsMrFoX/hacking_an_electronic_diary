@@ -1,11 +1,10 @@
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from datacenter.models import Schoolkid, Mark
 
+
 def fix_marks(student):
-    marks = Mark.objects.filter(schoolkid=student, points__in=[2, 3])
-    for mark in marks:
-        mark.points = 5
-        mark.save()
+    marks = Mark.objects.filter(schoolkid=student, points__in=[2, 3]).update(points=5)
+
 
 def hack_marks(student_name):
     try:
