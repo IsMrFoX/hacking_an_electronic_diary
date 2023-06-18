@@ -1,5 +1,6 @@
 from datacenter.models import Schoolkid, Chastisement, Subject, Commendation, Lesson
 from random import choice
+from db_utils import get_student
 
 
 EXAMPLES_OF_PRAISE = [
@@ -53,7 +54,7 @@ def create_commendation(student, subject, last_lesson):
 
 def update_chastisements(student_name, lesson):
     try:
-        student = Schoolkid.objects.get(full_name__contains=student_name.title())
+        student = get_student(student_name)
         subject = Subject.objects.filter(
             title=lesson.capitalize(),
             lesson__group_letter=student.group_letter,
