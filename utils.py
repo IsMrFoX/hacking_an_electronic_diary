@@ -8,7 +8,7 @@ def get_student(student_name):
     except Schoolkid.MultipleObjectsReturned:
         print(f'Найдено более одного ученика с таким именем - "{student_name}", введите полное имя: ФИО')
         return
-    except Schoolkid.ObjectDoesNotExist:
+    except Schoolkid.DoesNotExist:
         print('Ученика с таким именем нет в базе данных')
         return
     return student
