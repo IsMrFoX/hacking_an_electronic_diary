@@ -1,4 +1,3 @@
-from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from datacenter.models import Schoolkid, Chastisement, Subject, Commendation, Lesson
 from random import choice
 
