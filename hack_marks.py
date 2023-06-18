@@ -1,5 +1,5 @@
 from datacenter.models import Mark
-from db_utils import get_student
+from utils import get_student
 
 
 def fix_marks(student):

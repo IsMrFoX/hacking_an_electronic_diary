@@ -1,6 +1,6 @@
 from datacenter.models import Chastisement, Subject, Commendation, Lesson
 from random import choice
-from db_utils import get_student
+from utils import get_student
 
 
 EXAMPLES_OF_PRAISE = [
