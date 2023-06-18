@@ -55,11 +55,15 @@ def create_commendation(student, subject, last_lesson):
 def update_chastisements(student_name, lesson):
     try:
         student = get_student(student_name)
+        if student is None:
+            return
         subject = Subject.objects.filter(
             title=lesson.capitalize(),
             lesson__group_letter=student.group_letter,
-            year_of_study=student.year_of_study
-        ).first()
+            year_of_study=student.year_of_study).first()
+        if subject is None:
+            print(f'''Предмета с названием - "{lesson}" нет в базе данных, либо найдено более одного предмета с названием - "{lesson}", проверьте ваш ввод''')
+            return
         last_lesson = Lesson.objects.filter(
             group_letter=student.group_letter,
             subject=subject
@@ -67,15 +71,6 @@ def update_chastisements(student_name, lesson):
         if last_lesson is None:
             print(f'Не найдено занятий по предмету - "{lesson}", проверьте ваш ввод')
             return
-    except Subject.DoesNotExist:
-        print(f'Предмета с названием - "{lesson}" нет в базе данных, проверьте ваш ввод')
-        return
-    except Subject.MultipleObjectsReturned:
-        print(f'Найдено более одного предмета с названием - "{lesson}", введите название предмета полностью')
-        return
-    except Lesson.DoesNotExist:
-        print(f'Не найдено занятий по предмету - "{lesson}" для ученика "{student.full_name}"')
-        return
     except (SyntaxError, AttributeError):
         print('''Ошибка ввода, необходимо ввести имя ученика и название предмета через запятую в кавычках, пример: 
 update("Петров Максим", "Математика")''')
