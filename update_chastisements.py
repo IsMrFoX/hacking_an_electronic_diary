@@ -1,4 +1,4 @@
-from datacenter.models import Schoolkid, Chastisement, Subject, Commendation, Lesson
+from datacenter.models import Chastisement, Subject, Commendation, Lesson
 from random import choice
 from db_utils import get_student
 
