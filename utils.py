@@ -2,7 +2,6 @@ from datacenter.models import Schoolkid
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 
 
-
 def get_student(student_name):
     try:
         student = Schoolkid.objects.get(full_name__contains=student_name.title())
