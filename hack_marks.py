@@ -1,5 +1,6 @@
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from datacenter.models import Schoolkid, Mark
+from db_utils import get_student
 
 
 def fix_marks(student):
