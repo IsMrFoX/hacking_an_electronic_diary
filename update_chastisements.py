@@ -65,12 +65,6 @@ def update_chastisements(student_name, lesson):
         if last_lesson is None:
             print(f'Не найдено занятий по предмету - "{lesson}", проверьте ваш ввод')
             return
-    except Schoolkid.DoesNotExist:
-        print(f'Ученика с именем - "{student_name}" нет в базе данных, исправьте имя ученика')
-        return
-    except Schoolkid.MultipleObjectsReturned:
-        print(f'Найдено более одного ученика с таким именем - {student_name}, введите полное имя: ФИО')
-        return
     except Subject.DoesNotExist:
         print(f'Предмета с названием - "{lesson}" нет в базе данных, проверьте ваш ввод')
         return
