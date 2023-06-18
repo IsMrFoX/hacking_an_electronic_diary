@@ -75,8 +75,8 @@ def update_chastisements(student_name, lesson):
         print(f'Не найдено занятий по предмету - "{lesson}" для ученика "{student.full_name}"')
         return
     except (SyntaxError, AttributeError):
-        print('''Ошибка ввода, необходимо ввести имя ученика в кавычках, например: "Петров Максим",
-и название предмета в кавычках, например: "Математика" через запятую.''')
+        print('''Ошибка ввода, необходимо ввести имя ученика и название предмета через запятую в кавычках, пример: 
+update("Петров Максим", "Математика")''')
         return
     remove_chastisement(student)
     create_commendation(student, subject, last_lesson)
